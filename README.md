@@ -1,4 +1,4 @@
-![ToolsOver](https://github.com/Abubakrmali2/DE-Project-AdventureWorks-Sales/blob/main/Images/Untitled-2024-01-27-1406.png)
+![AzureDE](https://github.com/Abubakrmali2/DE-Project-AdventureWorks-Sales/blob/main/Images/Azure%20icon.png)
 
 # Azure End-To-End Data Engineering Project - AdventureWorks Sales Analysis
 
