@@ -52,5 +52,8 @@ This section describes the flow of data through the pipeline, from ingestion to 
 
 5.  **Analysis and Visualization:** Power BI is connected to the Azure Synapse Analytics serverless SQL pool. This connection allows Power BI to query the aggregated and modeled data in the Gold layer, enabling the creation of informative reports with valuable insights.
 
+---
+![Power BI Report Screenshot](https://github.com/Abubakrmali2/DE-Project-AdventureWorks-Sales/blob/main/Images/Screenshot%202025-02-21%20150804.png)
 
-<iframe title="Aw-Sales_report" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiYzcxMDBiMjItMGRjYi00NDc5LWJmNzQtYmNjZGYyNzM2YWU4IiwidCI6IjcyZTFhYTg1LTI5NjMtNDk3Yi1hOThhLWQ5MDk5M2ZiMDQ2NiIsImMiOjl9" frameborder="0" allowFullScreen="true"></iframe>
+[View the interactive Power BI report](https://app.powerbi.com/view?r=eyJrIjoiYzcxMDBiMjItMGRjYi00NDc5LWJmNzQtYmNjZGYyNzM2YWU4IiwidCI6IjcyZTFhYTg1LTI5NjMtNDk3Yi1hOThhLWQ5MDk5M2ZiMDQ2NiIsImMiOjl9)
+
