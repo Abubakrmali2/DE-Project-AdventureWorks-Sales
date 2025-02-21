@@ -25,7 +25,7 @@ This project focuses on building a dynamic, end-to-end pipeline using Azure tech
 
 *   **Data ingestion and Orchestration:** Azure Data Factory.
 *   **Data Storage:** Azure Blob Storage (for raw data/Bronze layer), Azure Data Lake Storage Gen2 (recommended for Silver/Gold layers for performance and hierarchical namespace).
-*   **Data Processing /Transformation Azure Databricks.
+*   **Data Processing/Transformation:** Azure Databricks.
 *   **Data Lakehouse:** Azure Synapse Analytics  
 *   **Data Visualization:**  Power BI.
 
