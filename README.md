@@ -29,44 +29,28 @@ This project focuses on building a dynamic, end-to-end pipeline using Azure tech
 *   **Data Lakehouse:** Azure Synapse Analytics  
 *   **Data Visualization:**  Power BI.
 
-## Architecture (Highly Recommended)
+## Project Architecture
+![ToolsOver](https://github.com/Abubakrmali2/DE-Project-AdventureWorks-Sales/blob/main/Images/Untitled-2024-01-27-1406.png)
 
-Include a diagram of your architecture.  Even a simple hand-drawn diagram or a basic diagram created in a tool like draw.io will greatly enhance the README.  The diagram should show the flow of data from the source to the various layers (Bronze, Silver, Gold) and the tools used at each stage.
 
-## Data Flow (Suggested Addition)
+## Data Flow
 
-Describe the flow of data through the pipeline:
+This section describes the flow of data through the pipeline, from ingestion to visualization.
 
-1.  **Ingestion:** How is the data ingested into the Bronze layer? (e.g., Copy activity in ADF, Spark read from source, etc.)
-2.  **Bronze Layer (Raw Data):** What is the purpose of the Bronze layer? (e.g., Store raw data in its original format.)
-3.  **Silver Layer (Cleaned and Transformed Data):** What transformations are performed in the Silver layer? (e.g., Data cleaning, standardization, enrichment, etc.)
-4.  **Gold Layer (Aggregated and Modeled Data):** What is the purpose of the Gold layer? (e.g., Store aggregated data ready for reporting and analysis.)
-5.  **Analysis and Visualization:** How is the data analyzed and visualized?
+1.  **Ingestion:** Data is ingested dynamically from CSV files stored in a GitHub repository using Azure Data Factory. A JSON parameter file drives the ingestion process, enabling flexible and automated data loading from the specified folder within the repository.
 
-## Setup and Deployment (Suggested Addition)
+2.  **Bronze Layer (Raw Data):** The raw data, in its original CSV format, is stored in the Bronze layer within **Azure Data Lake Storage Gen2**. This layer acts as the source of truth, preserving the data in its original state for future reprocessing or auditing.
 
-Provide clear instructions on how to set up and deploy the project:
+3.  **Silver Layer (Cleaned and Transformed Data):** Azure Databricks is used to process the data from the Bronze layer. The following transformations are performed:
+    *   Creation of a Calendar table.
+    *   Removal of duplicate records.
+    *   Concatenation and splitting of columns.
+    *   Replacement of values.
+    The transformed data is then written to the Silver layer in Parquet format within **Azure Data Lake Storage Gen2**.
 
-1.  **Prerequisites:** List all the required Azure resources and software.
-2.  **Deployment Steps:** Outline the steps to deploy the pipeline (e.g., Deploy ARM templates, publish Data Factory pipelines, configure Databricks clusters, etc.).
-3.  **Configuration:** Explain how to configure the pipeline (e.g., Connection strings, data source locations, etc.).
+4.  **Gold Layer (Aggregated and Modeled Data):** Azure Synapse Analytics (specifically, the *serverless SQL pool*) is used to create aggregated and modeled data, ready for reporting and analysis. This is achieved by defining views and external tables over the Parquet files in the Silver layer (and potentially performing further aggregations within the serverless SQL pool itself). The Gold layer data is then stored in **Azure Data Lake Storage Gen2**.
 
-## Usage (Suggested Addition)
+5.  **Analysis and Visualization:** Power BI is connected to the Azure Synapse Analytics serverless SQL pool. This connection allows Power BI to query the aggregated and modeled data in the Gold layer, enabling the creation of informative reports with valuable insights.
 
-Explain how to use the pipeline:
 
-1.  How to trigger the pipeline.
-2.  How to monitor the pipeline execution.
-3.  How to access the results.
-
-## Contributing (Suggested Addition)
-
-If you want others to contribute to your project, add contribution guidelines.
-
-## License (Suggested Addition)
-
-Specify the license under which your project is distributed.
-
-## Next Steps (Suggested Addition)
-
-What are the future plans for the project? (e.g., Add more data sources, implement real-time processing, etc.)
+<iframe title="Aw-Sales_report" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiYzcxMDBiMjItMGRjYi00NDc5LWJmNzQtYmNjZGYyNzM2YWU4IiwidCI6IjcyZTFhYTg1LTI5NjMtNDk3Yi1hOThhLWQ5MDk5M2ZiMDQ2NiIsImMiOjl9" frameborder="0" allowFullScreen="true"></iframe>
